@@ -10,6 +10,24 @@ function pippin_display_notice() {
 		foreach ($notices as $notice) {
 			$logged_in_only = get_post_meta($notice->ID, '_notice_for_logged_in_only', true);
 			$shortcode_only = get_post_meta($notice->ID, '_display_using_shortcode_only', true);
+
+			// This is set in the plugin "Simple Post Expiration Two"
+			$expires = get_post_meta( $$notice->ID, 'pw_spe_expiration', true );
+			
+			// If the expiration date has passed don't show this notice.
+			if( ! empty( $expires ) ) {
+
+				// Get the current time and the post's expiration date
+				$current_time = current_time( 'timestamp' );
+				$expiration   = strtotime( $expires, current_time( 'timestamp' ) );
+
+				// Determine if current time is greater than the expiration date
+				if( $current_time >= $expiration ) {
+					continue;
+				}
+
+			}
+
 			if( ( ( $logged_in_only && is_user_logged_in() ) || !$logged_in_only) && !$shortcode_only) {			
 				if(true) { ?>
 					<div id="notification-area" class="notification-area <?php echo strtolower(get_post_meta($notice->ID, '_notice_color', true)); ?> hidden">
@@ -37,6 +55,24 @@ function shortcode_display_notice() {
 		foreach($notices as $notice) {
 			$logged_in_only = get_post_meta($notice->ID, '_notice_for_logged_in_only', true);
 			$shortcode_only = get_post_meta($notice->ID, '_display_using_shortcode_only', true);
+
+			// This is set in the plugin "Simple Post Expiration Two"
+			$expires = get_post_meta( $$notice->ID, 'pw_spe_expiration', true );
+			
+			// If the expiration date has passed don't show this notice.
+			if( ! empty( $expires ) ) {
+
+				// Get the current time and the post's expiration date
+				$current_time = current_time( 'timestamp' );
+				$expiration   = strtotime( $expires, current_time( 'timestamp' ) );
+
+				// Determine if current time is greater than the expiration date
+				if( $current_time >= $expiration ) {
+					continue;
+				}
+
+			}
+
 			$cookie_expiration = get_post_meta($notice->ID, '_cookie_expiration', true);
 			if((($logged_in_only && is_user_logged_in() ) || !$logged_in_only) && $shortcode_only == true) {			
 				if(true) { ?>
