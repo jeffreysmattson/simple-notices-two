@@ -39,7 +39,7 @@ function shortcode_display_notice() {
 			$shortcode_only = get_post_meta($notice->ID, '_display_using_shortcode_only', true);
 			if((($logged_in_only && is_user_logged_in() ) || !$logged_in_only) && $shortcode_only == true) {			
 				if(true) { ?>
-					<div id="notification-area" class="<?php echo strtolower(get_post_meta($notice->ID, '_notice_color', true)); ?> hidden">
+					<div id="notification-area" data-id="<?php echo $notice->ID; ?>" class="<?php echo strtolower(get_post_meta($notice->ID, '_notice_color', true)); ?> hidden">
 						<a class="remove-notice" href="#" id="remove-notice" rel="<?php echo $notice->ID; ?>"><?php _e('X', 'simple-notices'); ?></a>
 						<h3><?php echo get_the_title($notice->ID); ?></h3>					
 						<?php echo do_shortcode(wpautop(__($notice->post_content))); ?>

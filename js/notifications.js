@@ -1,11 +1,15 @@
 jQuery(document).ready( function($) {
 
-	// notication is present
+	// notification is present
 	if ($("#notification-area").length && notices_ajax_script.logged_in == 'no') {
-		var notice_id = $('#notification-area #remove-notice').attr('rel');
-		if(!$.cookie('notice-' + notice_id)) {
-			$('#notification-area').show();
-		}
+		
+		$('.notification-area').each(function(){
+			$this = $(this);
+			notice_id = $this.find('#remove-notice').attr('rel');
+			if(!$.cookie('notice-' + notice_id)) {
+				$this.show();
+			}
+		});
 	}
 	
 	$(".remove-notice").on('click', function() {
