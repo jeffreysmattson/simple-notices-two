@@ -31,7 +31,7 @@ function shortcode_display_notice() {
 
 	/// this displays the notification area if the user has not read it before
 	global $user_ID; 
-	$notice_args = array('post_type' => 'notices', 'posts_per_page' => 1);
+	$notice_args = array('post_type' => 'notices', 'posts_per_page' => 2);
 	$notices = get_posts($notice_args);
 	if($notices) :
 		foreach($notices as $notice) {
