@@ -8,9 +8,9 @@ jQuery(document).ready( function($) {
 		}
 	}
 	
-	$(".remove-notice").click( function() {
-		
-		var notice_id = $(this).attr('rel');
+	$(".remove-notice").on('click', function() {
+		$this = $(this);
+		var notice_id = $this.attr('rel');
 		
 		if(notices_ajax_script.logged_in == 'no') {
 			// store a cookie so notice is not shown again
@@ -22,7 +22,7 @@ jQuery(document).ready( function($) {
 			notice_read: notice_id
 		};
 		$.post(notices_ajax_script.ajaxurl, data, function(response) {
-			$('#notification-area').slideUp('fast');
+			$this.parent('#notification-area').slideUp('fast');
 		});
 		return false;
 	});
