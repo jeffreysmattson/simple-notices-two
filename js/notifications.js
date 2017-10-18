@@ -14,7 +14,7 @@ jQuery(document).ready( function($) {
 	
 	$(".remove-notice").on('click', function() {
 		$this = $(this);
-		var notice_id = $this.attr('rel');
+		var notice_id = $this.find('#remove-notice').attr('rel');
 		
 		if(notices_ajax_script.logged_in == 'no') {
 			// store a cookie so notice is not shown again
