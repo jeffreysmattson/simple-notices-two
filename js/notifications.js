@@ -5,7 +5,8 @@ jQuery(document).ready( function($) {
 		
 		$('.notification-area').each(function(){
 			$this = $(this);
-			notice_id = $this.find('#remove-notice').attr('rel');
+			notice_id = $this.find('.remove-notice').attr('rel');
+			console.log(notice_id);
 			if(!$.cookie('notice-' + notice_id)) {
 				$this.show();
 			}
@@ -15,7 +16,7 @@ jQuery(document).ready( function($) {
 	$(".remove-notice").on('click', function() {
 		$this = $(this);
 		var notice_id = $this.find('#remove-notice').attr('rel');
-
+		console.log(notice_id);
 		// Set cookie for people not logged in.
 		$.cookie('notice-' + notice_id, 'yes', { expires: 1 });
 
