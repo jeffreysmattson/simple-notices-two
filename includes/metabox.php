@@ -21,7 +21,7 @@ $sn_meta_box = array(
         	'id' => '_notice_for_logged_in_only',
         	'type' => 'checkbox',
         	'desc' => __('Logged-in users only', 'simple-notices')
-     	)
+     	),
         array(
             'name' => __('Use Shortcode', 'rcp'),
             'id' => '_display_using_shortcode_only',
