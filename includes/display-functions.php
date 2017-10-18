@@ -29,9 +29,10 @@ add_action('wp_footer', 'pippin_display_notice');
  */
 function shortcode_display_notice() {
 
-	/// this displays the notification area if the user has not read it before
-	global $user_ID; 
-	$notice_args = array('post_type' => 'notices', 'posts_per_page' => 2);
+	global $user_ID;
+	
+	$max_number_notices_show_at_once = get_post_meta($notice->ID, '_display_max_num_notices', true);
+	$notice_args = array('post_type' => 'notices', 'posts_per_page' => $max_number_notices_show_at_once);
 	$notices = get_posts($notice_args);
 	if($notices) :
 		foreach($notices as $notice) {
