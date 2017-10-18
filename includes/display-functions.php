@@ -25,14 +25,13 @@ function pippin_display_notice() {
 add_action('wp_footer', 'pippin_display_notice');
 
 /**
- * Create a shortcode to show the notice.
+ * Create a short code to show the notice.
  */
 function shortcode_display_notice() {
 
 	global $user_ID;
 	
-	$max_number_notices_show_at_once = get_post_meta($notice->ID, '_display_max_num_notices', true);
-	$notice_args = array('post_type' => 'notices', 'posts_per_page' => $max_number_notices_show_at_once);
+	$notice_args = array('post_type' => 'notices', 'posts_per_page' => 2);
 	$notices = get_posts($notice_args);
 	if($notices) :
 		foreach($notices as $notice) {
