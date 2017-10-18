@@ -34,9 +34,10 @@ function shortcode_display_notice() {
 	$notice_args = array('post_type' => 'notices', 'posts_per_page' => 1);
 	$notices = get_posts($notice_args);
 	if($notices) :
-		foreach ($notices as $notice) {
+		foreach($notices as $notice) {
 			$logged_in_only = get_post_meta($notice->ID, '_notice_for_logged_in_only', true);
-			if( ( $logged_in_only && is_user_logged_in() ) || !$logged_in_only) {			
+			$shortcode_only = get_post_meta($notice->ID, '_display_using_shortcode_only', true);
+			if((($logged_in_only && is_user_logged_in() ) || !$logged_in_only) && $shortcode_only == true) {			
 				if(true) { ?>
 					<div id="notification-area" class="<?php echo strtolower(get_post_meta($notice->ID, '_notice_color', true)); ?> hidden">
 						<a class="remove-notice" href="#" id="remove-notice" rel="<?php echo $notice->ID; ?>"><?php _e('X', 'simple-notices'); ?></a>
