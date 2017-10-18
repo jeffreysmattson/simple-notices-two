@@ -6,7 +6,7 @@ jQuery(document).ready( function($) {
 		$('.notification-area').each(function(){
 			$this = $(this);
 			notice_id = $this.find('.remove-notice').attr('rel');
-			console.log(notice_id);
+			
 			if(!$.cookie('notice-' + notice_id)) {
 				$this.show();
 			} else{
@@ -18,9 +18,14 @@ jQuery(document).ready( function($) {
 	$(".remove-notice").on('click', function() {
 		$this = $(this);
 		var notice_id = $this.attr('rel');
-		console.log(notice_id);
+		var expirationMinutes = $this.data("cookieExpiration");
+		
 		// Set cookie for people not logged in.
-		$.cookie('notice-' + notice_id, 'yes', { expires: 1 });
+		var date = new Date();
+ 		var minutes = expirationMinutes;
+ 		date.setTime(date.getTime() + (minutes * 60 * 1000));
+
+		$.cookie('notice-' + notice_id, 'yes', { expires: date });
 
 		if(notices_ajax_script.logged_in == 'no') {
 			// store a cookie so notice is not shown again
