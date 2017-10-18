@@ -31,7 +31,7 @@ $sn_meta_box = array(
         array(
             'name' => __('Cookie Expiration', 'rcp'),
             'id' => '_cookie_expiration_minutes',
-            'type' => 'text',
+            'type' => 'number',
             'desc' => __('Cookie Expiration in Minutes', 'simple-notices')
         ),
     )
@@ -74,8 +74,8 @@ function sn_render_meta_box() {
 					case 'checkbox':
 						echo '<input type="checkbox" value="1" name="', $field['id'], '" id="', $field['id'], '"', $meta ? ' checked="checked"' : '', ' />';
 						break;
-                    case 'text':
-                        echo '<input type="text" value="'.$meta.'" name="', $field['id'], '" id="', $field['id'], '" />';
+                    case 'number':
+                        echo '<input type="number" value="'.$meta.'" name="', $field['id'], '" id="', $field['id'], '" />';
                         break;
 				}
 			echo '</td>';			
