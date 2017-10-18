@@ -75,7 +75,7 @@ function sn_render_meta_box() {
 						echo '<input type="checkbox" value="1" name="', $field['id'], '" id="', $field['id'], '"', $meta ? ' checked="checked"' : '', ' />';
 						break;
                     case 'text':
-                        echo '<input type="text" value="'.$meta ? $meta : "30".'" name="', $field['id'], '" id="', $field['id'], '" />';
+                        echo '<input type="text" value="'.$meta.'" name="', $field['id'], '" id="', $field['id'], '" />';
                         break;
 				}
 			echo '</td>';			
