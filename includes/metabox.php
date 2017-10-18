@@ -32,14 +32,12 @@ $sn_meta_box = array(
             'name' => __('Cookie Expiration', 'rcp'),
             'id' => '_cookie_expiration_minutes',
             'type' => 'number',
-            'desc' => __('Cookie Expiration in Minutes', 'simple-notices')
+            'desc' => __('Cookie Expiration in Minutes<br><span style="font-size:70%;">0 for end of session</span>', 'simple-notices')
         ),
     )
 );
 
 // Add meta box
-
-
 function sn_add_meta_boxes() {
     global $sn_meta_box;
 	add_meta_box($sn_meta_box['id'], $sn_meta_box['title'], 'sn_render_meta_box', 'notices', $sn_meta_box['context'], $sn_meta_box['priority']);
