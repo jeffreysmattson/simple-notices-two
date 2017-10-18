@@ -4,7 +4,7 @@
 	background: #d7e9f3;
 	border-bottom: 1px solid #86b2c9;
 }
-.admin-bar #notification-area { top: 28px; }
+.admin-bar #notification-area { top: 0px; }
 #notification-area.hidden { display: none; }
 .logged-in #notification-area.hidden { display: block; } /* don't ever hide for logged-in users */
 #notification-area h3 { font-weight: bold; clear:none!important; margin: 0; padding: 0; color: #222; }
