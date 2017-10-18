@@ -1,5 +1,5 @@
 #notification-area { 
-	position: fixed; top: 0; left: 0; z-index: 9999;
+	position: relative; top: 0; left: 0; z-index: 9999;
 	width: 100%; padding: 10px 5% 0;
 	background: #d7e9f3;
 	border-bottom: 1px solid #86b2c9;

@@ -22,7 +22,7 @@ jQuery(document).ready( function($) {
 			notice_read: notice_id
 		};
 		$.post(notices_ajax_script.ajaxurl, data, function(response) {
-			$('#notification-area').fadeOut();
+			$('#notification-area').slideUp('slow')();
 		});
 		return false;
 	});
