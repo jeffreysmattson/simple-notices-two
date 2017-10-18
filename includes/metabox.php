@@ -27,12 +27,13 @@ $sn_meta_box = array(
             'id' => '_display_using_shortcode_only',
             'type' => 'checkbox',
             'desc' => __('Display Using Shortcode Only', 'simple-notices')
-        )
+        ),
         array(
             'name' => __('Show Max Notices', 'rcp'),
             'id' => '_display_max_num_notices',
             'type' => 'checkbox',
-            'desc' => __('Number of Notices to Show at One Time', 'simple-notices')
+            'desc' => __('Number of Notices to Show at One Time', 'simple-notices'),
+            'options' => array('1', '2', '3', '4', '5')
         )
     )
 );
