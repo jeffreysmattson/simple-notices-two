@@ -1,7 +1,7 @@
 jQuery(document).ready( function($) {
 
 	// notification is present
-	if ($("#notification-area").length && notices_ajax_script.logged_in == 'no') {
+	if ($("#notification-area").length) {
 		
 		$('.notification-area').each(function(){
 			$this = $(this);
@@ -9,6 +9,8 @@ jQuery(document).ready( function($) {
 			console.log(notice_id);
 			if(!$.cookie('notice-' + notice_id)) {
 				$this.show();
+			} else{
+				$this.hide();
 			}
 		});
 	}
