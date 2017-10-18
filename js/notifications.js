@@ -15,7 +15,10 @@ jQuery(document).ready( function($) {
 	$(".remove-notice").on('click', function() {
 		$this = $(this);
 		var notice_id = $this.find('#remove-notice').attr('rel');
-		
+
+		// Set cookie for people not logged in.
+		$.cookie('notice-' + notice_id, 'yes', { expires: 1 });
+
 		if(notices_ajax_script.logged_in == 'no') {
 			// store a cookie so notice is not shown again
 			$.cookie('notice-' + notice_id, 'yes', { expires: 1 });
