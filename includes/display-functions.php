@@ -10,7 +10,7 @@ function pippin_display_notice() {
 		foreach ($notices as $notice) {
 			$logged_in_only = get_post_meta($notice->ID, '_notice_for_logged_in_only', true);
 			$shortcode_only = get_post_meta($notice->ID, '_display_using_shortcode_only', true);
-			if( ( ( $logged_in_only && is_user_logged_in() ) || !$logged_in_only) ) && !$shortcode_only) {			
+			if( ( ( $logged_in_only && is_user_logged_in() ) || !$logged_in_only) && !$shortcode_only) {			
 				if(true) { ?>
 					<div id="notification-area" class="<?php echo strtolower(get_post_meta($notice->ID, '_notice_color', true)); ?> hidden">
 						<a class="remove-notice" href="#" id="remove-notice" rel="<?php echo $notice->ID; ?>"><?php _e('X', 'simple-notices'); ?></a>
