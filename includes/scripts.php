@@ -16,3 +16,10 @@ function pippin_notice_js() {
 	);	
 }
 add_action('wp_enqueue_scripts', 'pippin_notice_js');
+
+
+// loads the js for the admin.
+function load_wp_admin_scripts() {
+	wp_enqueue_script( 'notifications', SIMPLE_NOTICES_URL . 'js/notifications.js', array( 'jquery' ) );
+}
+add_action( 'admin_enqueue_scripts', 'load_wp_admin_scripts' );

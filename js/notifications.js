@@ -41,5 +41,15 @@ jQuery(document).ready( function($) {
 		});
 		return false;
 	});
+
+	/**
+	 * Used to restrict number inputs in settings.
+	 */
+	function isNumberKey(evt){
+	    var charCode = (evt.which) ? evt.which : event.keyCode
+	    if (charCode > 31 && (charCode < 48 || charCode > 57))
+	        return false;
+	    return true;
+	}
 	
 });
