@@ -2,7 +2,7 @@
 /*
 Plugin Name: Simple Notices Two
 Plugin URI: http://pippinsplugins.com/simple-notices-plugin
-Description: A simple notices plugin for WordPress updated for my own personal use.
+Description: A simple notices plugin for WordPress updated.
 Version: 2
 Author: Jeffrey Mattson (Original: Pippen Williamson)
 Author URI: https://github.com/jeffreysmattson
