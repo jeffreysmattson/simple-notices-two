@@ -12,7 +12,7 @@ function pippin_display_notice() {
 			$shortcode_only = get_post_meta($notice->ID, '_display_using_shortcode_only', true);
 
 			// This is set in the plugin "Simple Post Expiration Two"
-			$expires = get_post_meta( $$notice->ID, 'pw_spe_expiration', true );
+			$expires = get_post_meta( $notice->ID, 'pw_spe_expiration', true );
 			
 			// If the expiration date has passed don't show this notice.
 			if( ! empty( $expires ) ) {
