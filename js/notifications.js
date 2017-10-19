@@ -44,7 +44,7 @@ jQuery(document).ready( function($) {
 });
 
 /**
- * Used to restrict number inputs in settings.
+ * Used to restrict input to only numbers.
  */
 function isNumberKey(evt){
     var charCode = (evt.which) ? evt.which : event.keyCode
