@@ -23,3 +23,16 @@ function load_wp_admin_scripts() {
 	wp_enqueue_script( 'notifications', SIMPLE_NOTICES_URL . 'js/notifications.js', array( 'jquery' ) );
 }
 add_action( 'admin_enqueue_scripts', 'load_wp_admin_scripts' );
+
+
+/**
+ * Load scripts for the expiration setting.
+ */
+function pw_spe_scripts() {
+	wp_enqueue_style( 'jquery-ui-css', SIMPLE_NOTICES_URL . '/css/jquery-ui-fresh.min.css' );
+	wp_enqueue_script( 'jquery-ui-datepicker' );
+	wp_enqueue_script( 'jquery-ui-slider' );
+	wp_enqueue_script( 'pw-spe-expiration', SIMPLE_NOTICES_URL . '/js/edit.js' );
+}
+add_action( 'load-post-new.php', 'pw_spe_scripts' );
+add_action( 'load-post.php', 'pw_spe_scripts' );

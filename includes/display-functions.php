@@ -12,7 +12,7 @@ function pippin_display_notice() {
 			$shortcode_only = get_post_meta($notice->ID, '_display_using_shortcode_only', true);
 
 			// This is set in the plugin "Simple Post Expiration Two"
-			$expires = get_post_meta( $notice->ID, 'pw_spe_expiration', true );
+			$expires = get_post_meta( $notice->ID, '_pw_spe_expiration', true );
 			
 			// If the expiration date has passed don't show this notice.
 			if( ! empty( $expires ) ) {
@@ -30,7 +30,7 @@ function pippin_display_notice() {
 
 			if( ( ( $logged_in_only && is_user_logged_in() ) || !$logged_in_only) && !$shortcode_only) {			
 				if(true) { ?>
-					<div id="notification-area" class="notification-area <?php echo strtolower(get_post_meta($notice->ID, '_notice_color', true)); ?> hidden">
+					<div id="notification-area" class="notification-area not-shortcode <?php echo strtolower(get_post_meta($notice->ID, '_notice_color', true)); ?> hidden">
 						<a class="remove-notice" href="#" id="remove-notice" rel="<?php echo $notice->ID; ?>"><?php _e('X', 'simple-notices'); ?></a>
 						<h3><?php echo get_the_title($notice->ID); ?></h3>					
 						<?php echo do_shortcode(wpautop(__($notice->post_content))); ?>
@@ -57,7 +57,7 @@ function shortcode_display_notice() {
 			$shortcode_only = get_post_meta($notice->ID, '_display_using_shortcode_only', true);
 
 			// This is set in the plugin "Simple Post Expiration Two"
-			$expires = get_post_meta( $notice->ID, 'pw_spe_expiration', true );
+			$expires = get_post_meta( $notice->ID, '_pw_spe_expiration', true );
 			
 			// If the expiration date has passed don't show this notice.
 			if( ! empty( $expires ) ) {

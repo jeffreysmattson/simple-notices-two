@@ -20,7 +20,7 @@ $sn_meta_box = array(
             'name' => __('Use Shortcode', 'rcp'),
             'id' => '_display_using_shortcode_only',
             'type' => 'checkbox',
-            'desc' => __('Display Using Shortcode Only', 'simple-notices')
+            'desc' => __('Display Using Shortcode Only<br><span style="font-size:70%;">[simple-notice-two]</span>', 'simple-notices')
         ),
         array(
             'name' => __('Cookie Expiration', 'rcp'),
@@ -53,7 +53,7 @@ function sn_render_meta_box() {
         $meta = get_post_meta($post->ID, $field['id'], true);
         
         echo '<tr>';
-			echo '<td>', $field['desc'], '</td>';
+			echo '<td style="width: 70%;">', $field['desc'], '</td>';
             echo '<td>';
 				switch ($field['type']) {
 					case 'select':
@@ -70,11 +70,37 @@ function sn_render_meta_box() {
                         echo '<input style="width:100%;" type="number" onkeypress="return isNumberKey(event)" value="'.$meta.'" name="', $field['id'], '" id="', $field['id'], '" />';
                         break;
 				}
-			echo '</td>';			
+			echo '</td>';
         echo '</tr>';
     }
     
     echo '</table>';
+
+    $expires = get_post_meta( $post->ID, '_pw_spe_expiration', true );
+    $label = ! empty( $expires ) ? date_i18n( 'Y-n-d', strtotime( $expires ) ) : __( 'never', 'pw-spe' );
+    $date  = ! empty( $expires ) ? date_i18n( 'Y-n-d', strtotime( $expires ) ) : '';
+    $date = esc_attr( $date ); 
+    echo <<<EOT
+    <div id="pw-spe-expiration-wrap" class="misc-pub-section">
+        <span>
+            <span class="wp-media-buttons-icon dashicons dashicons-calendar"></span>&nbsp;Expires:
+            <b id="pw-spe-expiration-label">{$label}</b>
+        </span>
+        <a href="#" id="pw-spe-edit-expiration" class="pw-spe-edit-expiration hide-if-no-js">
+            <span aria-hidden="true">Edit</span>&nbsp;
+            <span class="screen-reader-text">Edit date and time</span>
+        </a>
+        <div id="pw-spe-expiration-field" class="hide-if-js">
+            <p>
+                <input type="text" name="pw-spe-expiration" id="pw-spe-expiration" value="{$date}" placeholder="yyyy-mm-dd"/>
+            </p>
+            <p>
+                <a href="#" class="pw-spe-hide-expiration button secondary">OK</a>
+                <a href="#" class="pw-spe-hide-expiration cancel">Cancel</a>
+            </p>
+        </div>
+    </div>
+EOT;
 }
 
 // Save data from meta box
@@ -115,5 +141,13 @@ function sn_save_meta_data($post_id) {
 			delete_post_meta($post_id, $field['id']);
 		}
     }
+    //var_dump($_POST);
+    //exit();
+
+    $postedDate = $_POST['pw-spe-expiration'];
+    $result = update_post_meta($post_id, '_pw_spe_expiration', $postedDate);
+    var_dump($result);
+    var_dump($post_id);
+    
 }
 add_action('save_post', 'sn_save_meta_data');
