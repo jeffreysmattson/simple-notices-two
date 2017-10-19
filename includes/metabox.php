@@ -16,12 +16,6 @@ $sn_meta_box = array(
         	'desc' => __('Choose the notice color', 'simple-notices'),
 			'options' => array('Blue', 'Red', 'Orange', 'Green', 'Gray')
      	),
-		array(
-        	'name' => __('Logged In Users', 'rcp'),
-        	'id' => '_notice_for_logged_in_only',
-        	'type' => 'checkbox',
-        	'desc' => __('Logged-in users only', 'simple-notices')
-     	),
         array(
             'name' => __('Use Shortcode', 'rcp'),
             'id' => '_display_using_shortcode_only',
@@ -32,7 +26,7 @@ $sn_meta_box = array(
             'name' => __('Cookie Expiration', 'rcp'),
             'id' => '_cookie_expiration_minutes',
             'type' => 'number',
-            'desc' => __('Cookie Expiration in Minutes<br><span style="font-size:70%;">0 for end of session</span>', 'simple-notices')
+            'desc' => __('Cookie Expiration in Minutes<br><span style="font-size:70%;">(\'0\' for end of session)</span>', 'simple-notices')
         ),
     )
 );
@@ -73,7 +67,7 @@ function sn_render_meta_box() {
 						echo '<input type="checkbox" value="1" name="', $field['id'], '" id="', $field['id'], '"', $meta ? ' checked="checked"' : '', ' />';
 						break;
                     case 'number':
-                        echo '<input type="number" onkeypress="return isNumberKey(event)" value="'.$meta.'" name="', $field['id'], '" id="', $field['id'], '" />';
+                        echo '<input style="width:100%;" type="number" onkeypress="return isNumberKey(event)" value="'.$meta.'" name="', $field['id'], '" id="', $field['id'], '" />';
                         break;
 				}
 			echo '</td>';			
