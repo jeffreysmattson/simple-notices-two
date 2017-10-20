@@ -1,6 +1,10 @@
 <?php
-
-function pippin_display_notice() {
+/**
+ * Display the notice when the shortcode setting is not selected.
+ * 
+ * @return html
+ */
+function l7w_display_notice() {
 
 	/// this displays the notification area if the user has not read it before
 	global $user_ID; 
@@ -40,12 +44,12 @@ function pippin_display_notice() {
 		}
 	endif;
 }
-add_action('wp_footer', 'pippin_display_notice');
+add_action('wp_footer', 'l7w_display_notice');
 
 /**
- * Create a short code to show the notice.
+ * A short code to show the notice.
  */
-function shortcode_display_notice() {
+function l7w_shortcode_display_notice() {
 
 	global $user_ID;
 	
@@ -86,4 +90,4 @@ function shortcode_display_notice() {
 		}
 	endif;
 }
-add_shortcode( 'simple-notice-two', 'shortcode_display_notice' );
+add_shortcode( 'simple-notice-two', 'l7w_shortcode_display_notice' );
