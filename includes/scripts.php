@@ -1,24 +1,32 @@
 <?php
 
-// loads the notices jQuery
-function pippin_notice_js() {
+/**
+ * lLoad style and scripts for front end.
+ * 
+ * @return  void
+ */
+function l7w_notice_js() {
 	$logged_in = 'yes';
 	if(!is_user_logged_in()) {
 		$logged_in = 'no';
 	}
-	wp_enqueue_style( 'notifications', SIMPLE_NOTICES_URL . 'css/notifications.css');
+	wp_enqueue_style( 'notifications', SIMPLE_NOTICES_URL . 'stylesheets/screen.css');
 	wp_enqueue_script( 'jquery-coookies', SIMPLE_NOTICES_URL . 'js/jquery.cookie.js', array( 'jquery' ) );
 	wp_enqueue_script( 'notifications', SIMPLE_NOTICES_URL . 'js/notifications.js', array( 'jquery' ) );
 	wp_localize_script( 'notifications', 'notices_ajax_script', array( 
-		'ajaxurl' => admin_url( 'admin-ajax.php' ),
-		'logged_in' => $logged_in
+		'ajaxurl' 			=> admin_url( 'admin-ajax.php' ),
+		'logged_in' 		=> $logged_in
 		)
-	);	
+	);
 }
-add_action('wp_enqueue_scripts', 'pippin_notice_js');
+add_action('wp_enqueue_scripts', 'l7w_notice_js');
 
 
-// loads the js for the admin.
+/**
+ * Load js for the admin.
+ * 
+ * @return void
+ */
 function load_wp_admin_scripts() {
 	wp_enqueue_script( 'notifications', SIMPLE_NOTICES_URL . 'js/notifications.js', array( 'jquery' ) );
 }

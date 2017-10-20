@@ -8,7 +8,7 @@ function l7w_display_notice() {
 
 	/// this displays the notification area if the user has not read it before
 	global $user_ID; 
-	$notice_args = array('post_type' => 'notices', 'posts_per_page' => 1);
+	$notice_args = array('post_type' => 'notices', 'posts_per_page' => 2);
 	$notices = get_posts($notice_args);
 	if($notices) :
 		foreach ($notices as $notice) {
@@ -31,16 +31,14 @@ function l7w_display_notice() {
 				}
 
 			}
-
-			if( ( ( $logged_in_only && is_user_logged_in() ) || !$logged_in_only) && !$shortcode_only) {			
-				if(true) { ?>
-					<div id="notification-area" class="notification-area not-shortcode <?php echo strtolower(get_post_meta($notice->ID, '_notice_color', true)); ?> hidden">
+			$cookie_expiration = get_post_meta($notice->ID, '_cookie_expiration', true);
+			if( ( ( $logged_in_only && is_user_logged_in() ) || !$logged_in_only) && !$shortcode_only) : ?>			
+					<div id="notification-area" data-cookieExpiration="<?php echo $cookie_expiration; ?>" class="notification-area not-shortcode <?php echo strtolower(get_post_meta($notice->ID, '_notice_color', true)); ?> hidden <?php echo $logged_in_only ? 'show' : ''?>">
 						<a class="remove-notice" href="#" id="remove-notice" rel="<?php echo $notice->ID; ?>"><?php _e('X', 'simple-notices'); ?></a>
 						<h3><?php echo get_the_title($notice->ID); ?></h3>					
 						<?php echo do_shortcode(wpautop(__($notice->post_content))); ?>
 					</div>
-				<?php } 
-			}			
+			<?php endif;
 		}
 	endif;
 }
@@ -78,15 +76,13 @@ function l7w_shortcode_display_notice() {
 			}
 
 			$cookie_expiration = get_post_meta($notice->ID, '_cookie_expiration', true);
-			if((($logged_in_only && is_user_logged_in() ) || !$logged_in_only) && $shortcode_only == true) {			
-				if(true) { ?>
-					<div id="notification-area" data-cookieExpiration="<?php echo $cookie_expiration; ?>" class="notification-area <?php echo strtolower(get_post_meta($notice->ID, '_notice_color', true)); ?> hidden">
+			if((($logged_in_only && is_user_logged_in() ) || !$logged_in_only) && $shortcode_only == true) : ?>			
+					<div id="notification-area" data-cookieExpiration="<?php echo $cookie_expiration; ?>" class="notification-area <?php echo strtolower(get_post_meta($notice->ID, '_notice_color', true)); ?> hidden <?php echo $logged_in_only ? 'show' : ''?>">
 						<a class="remove-notice" href="#" id="remove-notice" rel="<?php echo $notice->ID; ?>"><?php _e('X', 'simple-notices'); ?></a>
 						<h3><?php echo get_the_title($notice->ID); ?></h3>					
 						<?php echo do_shortcode(wpautop(__($notice->post_content))); ?>
 					</div>
-				<?php } 
-			}			
+			<?php endif;		
 		}
 	endif;
 }

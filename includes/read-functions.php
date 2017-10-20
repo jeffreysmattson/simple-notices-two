@@ -91,8 +91,7 @@ function l7w_spe_filter_title( $title = '', $post_id = 0 ) {
 	if( l7w_spe_is_expired( $post_id ) ) {
 
 		// Post is expired so attach the prefix
-		$prefix = get_option( 'pw_spe_prefix', 'Expired:');
-
+		$prefix = get_option( 'pw_spe_prefix', '<span style="color:rgb(241, 78, 50);">Expired</span>:');
 		$title  = $prefix . '&nbsp;' . $title;
 
 	}

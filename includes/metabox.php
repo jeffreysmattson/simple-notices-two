@@ -11,12 +11,18 @@ $sn_meta_box = array(
     'priority' => 'low',
     'fields' => array(
         array(
-        	'name' => __('Color', 'rcp'),
+           	'name' => __('Color', 'rcp'),
         	'id' => '_notice_color',
         	'type' => 'select',
         	'desc' => __('Choose the notice color', 'simple-notices'),
     		'options' => array('Blue', 'Red', 'Orange', 'Green', 'Gray')
      	),
+        array(
+            'name' => __('Logged In Users', 'rcp'),
+            'id' => '_notice_for_logged_in_only',
+            'type' => 'checkbox',
+            'desc' => __('Show Always When Logged In<br><span style="font-size:70%;">(For testing)</span>', 'simple-notices')
+        ),
         array(
             'name' => __('Use Shortcode', 'rcp'),
             'id' => '_display_using_shortcode_only',
@@ -91,7 +97,7 @@ function sn_render_meta_box() {
         </a>
         <div id="pw-spe-expiration-field" class="hide-if-js">
             <p>
-                <input type="text" name="pw-spe-expiration" id="pw-spe-expiration" value="{$date}" placeholder="yyyy-mm-dd"/>
+               <input type="text" name="pw-spe-expiration" id="pw-spe-expiration" value="{$date}" placeholder="yyyy-mm-dd"/>
             </p>
             <p>
                 <a href="#" class="pw-spe-hide-expiration button secondary">OK</a>

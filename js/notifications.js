@@ -1,7 +1,7 @@
 jQuery(document).ready( function($) {
 
 	// notification is present
-	if ($("#notification-area").length) {
+	if ($("#notification-area").length && notices_ajax_script.logged_in == 'no') {
 		
 		$('.notification-area').each(function(){
 			$this = $(this);
@@ -25,11 +25,10 @@ jQuery(document).ready( function($) {
  		var minutes = expirationMinutes;
  		date.setTime(date.getTime() + (minutes * 60 * 1000));
 
-		$.cookie('notice-' + notice_id, 'yes', { expires: date });
 
 		if(notices_ajax_script.logged_in == 'no') {
 			// store a cookie so notice is not shown again
-			$.cookie('notice-' + notice_id, 'yes', { expires: 1 });
+			$.cookie('notice-' + notice_id, 'yes', { expires: date });
 		}
 		
 		var data = {
@@ -38,6 +37,7 @@ jQuery(document).ready( function($) {
 		};
 		$.post(notices_ajax_script.ajaxurl, data, function(response) {
 			$this.parent('#notification-area').slideUp('fast');
+			$this.parent('#notification-area').removeClass('show');
 		});
 		return false;
 	});
