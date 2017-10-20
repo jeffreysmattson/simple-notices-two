@@ -1,6 +1,7 @@
 <?php
-
-//custom meta boxes
+/**
+ * Build our custom meta boxes here.  This is dirty right now but it works.
+ */
 $sn_prefix = 'sn_';
 
 $sn_meta_box = array(
@@ -14,7 +15,7 @@ $sn_meta_box = array(
         	'id' => '_notice_color',
         	'type' => 'select',
         	'desc' => __('Choose the notice color', 'simple-notices'),
-			'options' => array('Blue', 'Red', 'Orange', 'Green', 'Gray')
+    		'options' => array('Blue', 'Red', 'Orange', 'Green', 'Gray')
      	),
         array(
             'name' => __('Use Shortcode', 'rcp'),
@@ -45,13 +46,11 @@ function sn_render_meta_box() {
     
     // Use nonce for verification
     echo '<input type="hidden" name="sn_meta_box" value="', wp_create_nonce(basename(__FILE__)), '" />';
-    
     echo '<table class="form-table">';
 	
     foreach ($sn_meta_box['fields'] as $field) {
         // get current post meta data
         $meta = get_post_meta($post->ID, $field['id'], true);
-        
         echo '<tr>';
 			echo '<td style="width: 70%;">', $field['desc'], '</td>';
             echo '<td>';
@@ -73,13 +72,13 @@ function sn_render_meta_box() {
 			echo '</td>';
         echo '</tr>';
     }
-    
     echo '</table>';
 
     $expires = get_post_meta( $post->ID, '_pw_spe_expiration', true );
     $label = ! empty( $expires ) ? date_i18n( 'Y-n-d', strtotime( $expires ) ) : __( 'never', 'pw-spe' );
     $date  = ! empty( $expires ) ? date_i18n( 'Y-n-d', strtotime( $expires ) ) : '';
-    $date = esc_attr( $date ); 
+    $date = esc_attr( $date );
+
     echo <<<EOT
     <div id="pw-spe-expiration-wrap" class="misc-pub-section">
         <span>
@@ -103,7 +102,12 @@ function sn_render_meta_box() {
 EOT;
 }
 
-// Save data from meta box
+/**
+ * Save data from meta box
+ * 
+ * @param  int      $post_id
+ * @return void
+ */
 function sn_save_meta_data($post_id) {
     global $sn_meta_box;
     
@@ -141,13 +145,9 @@ function sn_save_meta_data($post_id) {
 			delete_post_meta($post_id, $field['id']);
 		}
     }
-    //var_dump($_POST);
-    //exit();
 
     $postedDate = $_POST['pw-spe-expiration'];
     $result = update_post_meta($post_id, '_pw_spe_expiration', $postedDate);
-    var_dump($result);
-    var_dump($post_id);
-    
+   
 }
 add_action('save_post', 'sn_save_meta_data');
