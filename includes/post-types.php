@@ -1,13 +1,12 @@
 <?php
 
-/////////////////////////////////////////////////
-// notice custom post type
-/////////////////////////////////////////////////
-
-function pippin_create_notices() {
+/**
+ * Register the Notices custom post type
+ */
+function l7w_create_notices_two() {
 
 	$labels = array(
-		'name' => _x( 'Notices', 'post type general name' ), // Tip: _x('') is used for localization
+		'name' => _x( 'Notices', 'post type general name' ),
 		'singular_name' => _x( 'Notice', 'post type singular name' ),
 		'add_new' => _x( 'Add New', 'Notice' ),
 		'add_new_item' => __( 'Add New Notice' ),
@@ -32,4 +31,4 @@ function pippin_create_notices() {
      );
  	register_post_type('notices', $notice_args);
 }
-add_action('init', 'pippin_create_notices');
+add_action('init', 'l7w_create_notices_two');
