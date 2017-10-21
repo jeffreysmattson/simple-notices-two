@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Check if the notice has been read.
  * 
@@ -8,7 +7,6 @@
  * @return boolean  
  */
 function pippin_check_notice_is_read($post_id, $user_id) {
-	
 	$read_notices = get_user_meta($user_id, 'pippin_notice_ids', true);
 	if($read_notices && is_array($read_notices)) {
 		if(in_array($post_id, $read_notices)) {
@@ -18,7 +16,6 @@ function pippin_check_notice_is_read($post_id, $user_id) {
 	
 	// if not closed
 	return false;
-	
 }
 
 /**
@@ -31,7 +28,6 @@ function pippin_notice_add_to_usermeta($post_id) {
 	global $user_ID;
 	$read_notices = get_user_meta($user_ID, 'pippin_notice_ids', true);
 	$read_notices[] = $post_id;
-	
 	update_user_meta($user_ID, 'pippin_notice_ids', $read_notices);
 }
 
@@ -57,9 +53,7 @@ add_action('wp_ajax_mark_notice_as_read', 'pippin_notice_mark_as_read');
  * @return bool
  */
 function l7w_spe_is_expired( $post_id = 0 ) {
-
 	$expires = get_post_meta( $post_id, '_pw_spe_expiration', true );
-
 	if( ! empty( $expires ) ) {
 
 		// Get the current time and the post's expiration date
@@ -68,15 +62,10 @@ function l7w_spe_is_expired( $post_id = 0 ) {
 
 		// Determine if current time is greater than the expiration date
 		if( $current_time >= $expiration ) {
-
 			return true;
-
 		}
-
 	}
-
 	return false;
-
 }
 
 /**
@@ -87,15 +76,12 @@ function l7w_spe_is_expired( $post_id = 0 ) {
  * @return void
  */
 function l7w_spe_filter_title( $title = '', $post_id = 0 ) {
-
 	if( l7w_spe_is_expired( $post_id ) ) {
 
 		// Post is expired so attach the prefix
 		$prefix = get_option( 'pw_spe_prefix', 'Expired:');
 		$title  = $prefix . '&nbsp;' . $title;
-
 	}
 	return $title;
-
 }
 add_filter( 'the_title', 'l7w_spe_filter_title', 100, 2 );
