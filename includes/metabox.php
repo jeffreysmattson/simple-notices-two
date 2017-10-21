@@ -11,29 +11,29 @@ $sn_meta_box = array(
     'priority' => 'low',
     'fields' => array(
         array(
-           	'name' => __('Color', 'rcp'),
+		'name' => __('Color', 'rcp'),
         	'id' => '_notice_color',
         	'type' => 'select',
         	'desc' => __('Choose the notice color', 'simple-notices'),
     		'options' => array('Blue', 'Red', 'Orange', 'Green', 'Gray')
      	),
         array(
-            'name' => __('Logged In Users', 'rcp'),
-            'id' => '_notice_for_logged_in_only',
-            'type' => 'checkbox',
-            'desc' => __('Show Always When Logged In<br><span style="font-size:70%;">(For testing)</span>', 'simple-notices')
+        	'name' => __('Logged In Users', 'rcp'),
+		'id' => '_notice_for_logged_in_only',
+		'type' => 'checkbox',
+		'desc' => __('Show Always When Logged In<br><span style="font-size:70%;">(For testing)</span>', 'simple-notices')
         ),
         array(
-            'name' => __('Use Shortcode', 'rcp'),
-            'id' => '_display_using_shortcode_only',
-            'type' => 'checkbox',
-            'desc' => __('Display Using Shortcode Only<br><span style="font-size:70%;">[simple-notice-two]</span>', 'simple-notices')
+            	'name' => __('Use Shortcode', 'rcp'),
+            	'id' => '_display_using_shortcode_only',
+            	'type' => 'checkbox',
+            	'desc' => __('Display Using Shortcode Only<br><span style="font-size:70%;">[simple-notice-two]</span>', 'simple-notices')
         ),
         array(
-            'name' => __('Cookie Expiration', 'rcp'),
-            'id' => '_cookie_expiration_minutes',
-            'type' => 'number',
-            'desc' => __('Cookie Expiration in Minutes<br><span style="font-size:70%;">(\'0\' for end of session)</span>', 'simple-notices')
+            	'name' => __('Cookie Expiration', 'rcp'),
+            	'id' => '_cookie_expiration_minutes',
+            	'type' => 'number',
+            	'desc' => __('Cookie Expiration in Minutes<br><span style="font-size:70%;">(\'0\' for end of session)</span>', 'simple-notices')
         ),
     )
 );
@@ -45,7 +45,6 @@ function sn_add_meta_boxes() {
 }
 add_action('admin_menu', 'sn_add_meta_boxes');
 
-
 // Callback function to show fields in meta box
 function sn_render_meta_box() {
     global $sn_meta_box, $post;
@@ -53,29 +52,28 @@ function sn_render_meta_box() {
     // Use nonce for verification
     echo '<input type="hidden" name="sn_meta_box" value="', wp_create_nonce(basename(__FILE__)), '" />';
     echo '<table class="form-table">';
-	
     foreach ($sn_meta_box['fields'] as $field) {
         // get current post meta data
         $meta = get_post_meta($post->ID, $field['id'], true);
         echo '<tr>';
-			echo '<td style="width: 70%;">', $field['desc'], '</td>';
-            echo '<td>';
-				switch ($field['type']) {
-					case 'select':
-						echo '<select name="', $field['id'], '" id="', $field['id'], '">';
-						foreach ($field['options'] as $option) {
-							echo '<option', $meta == $option ? ' selected="selected"' : '', '>', $option, '</option>';
-						}
-						echo '</select>';
-						break;
-					case 'checkbox':
-						echo '<input type="checkbox" value="1" name="', $field['id'], '" id="', $field['id'], '"', $meta ? ' checked="checked"' : '', ' />';
-						break;
-                    case 'number':
-                        echo '<input style="width:100%;" type="number" onkeypress="return isNumberKey(event)" value="'.$meta.'" name="', $field['id'], '" id="', $field['id'], '" />';
-                        break;
-				}
-			echo '</td>';
+		echo '<td style="width: 70%;">', $field['desc'], '</td>';
+        	echo '<td>';
+			switch ($field['type']) {
+				case 'select':
+					echo '<select name="', $field['id'], '" id="', $field['id'], '">';
+					foreach ($field['options'] as $option) {
+						echo '<option', $meta == $option ? ' selected="selected"' : '', '>', $option, '</option>';
+					}
+					echo '</select>';
+					break;
+				case 'checkbox':
+					echo '<input type="checkbox" value="1" name="', $field['id'], '" id="', $field['id'], '"', $meta ? ' checked="checked"' : '', ' />';
+					break;
+				case 'number':
+					echo '<input style="width:100%;" type="number" onkeypress="return isNumberKey(event)" value="'.$meta.'" name="', $field['id'], '" id="', $field['id'], '" />';
+					break;
+			}
+		echo '</td>';
         echo '</tr>';
     }
     echo '</table>';
