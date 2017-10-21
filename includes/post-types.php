@@ -1,10 +1,8 @@
 <?php
-
 /**
  * Register the Notices custom post type
  */
 function l7w_create_notices_two() {
-
 	$labels = array(
 		'name' => _x( 'Notices', 'post type general name' ),
 		'singular_name' => _x( 'Notice', 'post type singular name' ),
