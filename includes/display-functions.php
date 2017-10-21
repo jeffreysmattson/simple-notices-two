@@ -6,7 +6,6 @@
  */
 function l7w_display_notice() {
 
-	/// this displays the notification area if the user has not read it before
 	global $user_ID; 
 	$notice_args = array('post_type' => 'notices', 'posts_per_page' => 2);
 	$notices = get_posts($notice_args);
