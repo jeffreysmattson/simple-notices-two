@@ -14,31 +14,6 @@
   border-bottom: 1px solid #86b2c9;
 }
 /* line 6, ../simple-css/sass/l7w/_main.scss */
-#notification-area.not-shortcode {
-  position: fixed !important;
-  width: 89vw;
-}
-/* line 10, ../simple-css/sass/l7w/_main.scss */
-#notification-area.show {
-  display: block !important;
-}
-
-/* line 15, ../simple-css/sass/l7w/_main.scss */
-.admin-bar #notification-area {
-  top: 0px;
-}
-/* line 17, ../simple-css/sass/l7w/_main.scss */
-.admin-bar #notification-area.not-shortcode {
-  top: 24px;
-  display: none;
-}
-/* line 21, ../simple-css/sass/l7w/_main.scss */
-.admin-bar #notification-area.hidden {
-  display: none;
-}
-
-/*.logged-in #notification-area.hidden { display: block; } don't ever hide for logged-in users */
-/* line 27, ../simple-css/sass/l7w/_main.scss */
 #notification-area h3 {
   font-weight: bold;
   clear: none !important;
@@ -46,19 +21,124 @@
   padding: 0;
   color: #222;
 }
-
-/* line 28, ../simple-css/sass/l7w/_main.scss */
+/* line 13, ../simple-css/sass/l7w/_main.scss */
 #notification-area p {
   margin: 0 0 10px;
   color: #222;
 }
-
-/* line 29, ../simple-css/sass/l7w/_main.scss */
+/* line 17, ../simple-css/sass/l7w/_main.scss */
 #notification-area a {
   color: #999;
 }
-
+/* line 20, ../simple-css/sass/l7w/_main.scss */
+#notification-area.not-shortcode {
+  position: fixed !important;
+  width: 89vw;
+}
+/* line 24, ../simple-css/sass/l7w/_main.scss */
+#notification-area.show {
+  display: block !important;
+}
+/* line 27, ../simple-css/sass/l7w/_main.scss */
+#notification-area.red {
+  background: #ff8e8e;
+  border-color: #d75454;
+}
 /* line 30, ../simple-css/sass/l7w/_main.scss */
+#notification-area.red p, #notification-area.red h3 {
+  color: #222;
+}
+/* line 33, ../simple-css/sass/l7w/_main.scss */
+#notification-area.red a {
+  color: #666;
+}
+/* line 36, ../simple-css/sass/l7w/_main.scss */
+#notification-area.red #remove-notice {
+  border-color: #d75454;
+}
+/* line 38, ../simple-css/sass/l7w/_main.scss */
+#notification-area.red #remove-notice:hover {
+  background: #d75454;
+}
+/* line 43, ../simple-css/sass/l7w/_main.scss */
+#notification-area.orange {
+  background: #fe8e33;
+  border-color: #c75a02;
+}
+/* line 46, ../simple-css/sass/l7w/_main.scss */
+#notification-area.orange p, #notification-area.orange h3 {
+  color: #222;
+}
+/* line 49, ../simple-css/sass/l7w/_main.scss */
+#notification-area.orange a {
+  color: #666;
+}
+/* line 52, ../simple-css/sass/l7w/_main.scss */
+#notification-area.orange #remove-notice {
+  border-color: #c75a02;
+}
+/* line 54, ../simple-css/sass/l7w/_main.scss */
+#notification-area.orange #remove-notice:hover {
+  background: #c75a02;
+}
+/* line 59, ../simple-css/sass/l7w/_main.scss */
+#notification-area.green {
+  background: #5dd428;
+  border-color: #46b117;
+}
+/* line 62, ../simple-css/sass/l7w/_main.scss */
+#notification-area.green p, #notification-area.green h3 {
+  color: #222;
+}
+/* line 65, ../simple-css/sass/l7w/_main.scss */
+#notification-area.green a {
+  color: #666;
+}
+/* line 68, ../simple-css/sass/l7w/_main.scss */
+#notification-area.green #remove-notice {
+  border-color: #46b117;
+}
+/* line 70, ../simple-css/sass/l7w/_main.scss */
+#notification-area.green #remove-notice:hover {
+  background: #46b117;
+}
+/* line 75, ../simple-css/sass/l7w/_main.scss */
+#notification-area.gray {
+  background: #d8d8d8;
+  border-color: #bebebe;
+}
+/* line 78, ../simple-css/sass/l7w/_main.scss */
+#notification-area.gray p, #notification-area.gray h3 {
+  color: #222;
+}
+/* line 81, ../simple-css/sass/l7w/_main.scss */
+#notification-area.gray a {
+  color: #666;
+}
+/* line 84, ../simple-css/sass/l7w/_main.scss */
+#notification-area.gray #remove-notice {
+  border-color: #bebebe;
+}
+/* line 86, ../simple-css/sass/l7w/_main.scss */
+#notification-area.gray #remove-notice:hover {
+  background: #bebebe;
+}
+
+/* line 93, ../simple-css/sass/l7w/_main.scss */
+.admin-bar #notification-area {
+  top: 0px;
+}
+/* line 95, ../simple-css/sass/l7w/_main.scss */
+.admin-bar #notification-area.not-shortcode {
+  top: 24px;
+  display: none;
+}
+/* line 99, ../simple-css/sass/l7w/_main.scss */
+.admin-bar #notification-area.hidden {
+  display: none;
+}
+
+/* line 104, ../simple-css/sass/l7w/_main.scss */
 #remove-notice {
   display: block;
   float: right;
@@ -67,122 +147,9 @@
   padding: 1px 6px;
   color: #333;
 }
-
-/* line 31, ../simple-css/sass/l7w/_main.scss */
+/* line 111, ../simple-css/sass/l7w/_main.scss */
 #remove-notice:hover {
   text-decoration: none;
   background: #86b2c9;
   color: #fff;
-}
-
-/********************
-* colors 
-********************/
-/* blue - default */
-/* red */
-/* line 40, ../simple-css/sass/l7w/_main.scss */
-#notification-area.red {
-  background: #ff8e8e;
-  border-color: #d75454;
-}
-
-/* line 41, ../simple-css/sass/l7w/_main.scss */
-#notification-area.red p, #notification-area.red h3 {
-  color: #222;
-}
-
-/* line 42, ../simple-css/sass/l7w/_main.scss */
-#notification-area.red a {
-  color: #666;
-}
-
-/* line 43, ../simple-css/sass/l7w/_main.scss */
-#notification-area.red #remove-notice {
-  border-color: #d75454;
-}
-
-/* line 44, ../simple-css/sass/l7w/_main.scss */
-#notification-area.red #remove-notice:hover {
-  background: #d75454;
-}
-
-/* orange */
-/* line 47, ../simple-css/sass/l7w/_main.scss */
-#notification-area.orange {
-  background: #fe8e33;
-  border-color: #c75a02;
-}
-
-/* line 48, ../simple-css/sass/l7w/_main.scss */
-#notification-area.orange p, #notification-area.red h3 {
-  color: #222;
-}
-
-/* line 49, ../simple-css/sass/l7w/_main.scss */
-#notification-area.orange a {
-  color: #666;
-}
-
-/* line 50, ../simple-css/sass/l7w/_main.scss */
-#notification-area.orange #remove-notice {
-  border-color: #c75a02;
-}
-
-/* line 51, ../simple-css/sass/l7w/_main.scss */
-#notification-area.orange #remove-notice:hover {
-  background: #c75a02;
-}
-
-/* green */
-/* line 54, ../simple-css/sass/l7w/_main.scss */
-#notification-area.green {
-  background: #5dd428;
-  border-color: #46b117;
-}
-
-/* line 55, ../simple-css/sass/l7w/_main.scss */
-#notification-area.green p, #notification-area.red h3 {
-  color: #222;
-}
-
-/* line 56, ../simple-css/sass/l7w/_main.scss */
-#notification-area.green a {
-  color: #666;
-}
-
-/* line 57, ../simple-css/sass/l7w/_main.scss */
-#notification-area.green #remove-notice {
-  border-color: #46b117;
-}
-
-/* line 58, ../simple-css/sass/l7w/_main.scss */
-#notification-area.green #remove-notice:hover {
-  background: #46b117;
-}
-
-/* gray */
-/* line 61, ../simple-css/sass/l7w/_main.scss */
-#notification-area.gray {
-  background: #d8d8d8;
-  border-color: #bebebe;
-}
-
-/* line 62, ../simple-css/sass/l7w/_main.scss */
-#notification-area.gray p, #notification-area.red h3 {
-  color: #222;
-}
-
-/* line 63, ../simple-css/sass/l7w/_main.scss */
-#notification-area.gray a {
-  color: #666;
-}
-
-/* line 64, ../simple-css/sass/l7w/_main.scss */
-#notification-area.gray #remove-notice {
-  border-color: #bebebe;
-}
-
-/* line 65, ../simple-css/sass/l7w/_main.scss */
-#notification-area.gray #remove-notice:hover {
-  background: #bebebe;
 }
