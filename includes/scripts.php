@@ -1,5 +1,4 @@
 <?php
-
 /**
  * lLoad style and scripts for front end.
  * 
@@ -21,7 +20,6 @@ function l7w_notice_js() {
 }
 add_action('wp_enqueue_scripts', 'l7w_notice_js');
 
-
 /**
  * Load js for the admin.
  * 
@@ -31,7 +29,6 @@ function load_wp_admin_scripts() {
 	wp_enqueue_script( 'notifications', SIMPLE_NOTICES_URL . 'js/notifications.js', array( 'jquery' ) );
 }
 add_action( 'admin_enqueue_scripts', 'load_wp_admin_scripts' );
-
 
 /**
  * Load scripts for the expiration setting.
