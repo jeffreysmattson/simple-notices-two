@@ -41,9 +41,10 @@ function pippin_notice_mark_as_read() {
 		$notice_id = intval($_POST['notice_read']);
 		$marked_as_read = pippin_notice_add_to_usermeta($notice_id);
 	}
-	die();
+	wp_die();
 }
 add_action('wp_ajax_mark_notice_as_read', 'pippin_notice_mark_as_read');
+add_action("wp_ajax_nopriv_mark_notice_as_read", "pippin_notice_mark_as_read");
 
 /**
  * Determines if a post is expired.
