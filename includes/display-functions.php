@@ -6,7 +6,6 @@
  */
 function l7w_display_notice() {
 
-	/// this displays the notification area if the user has not read it before
 	global $user_ID; 
 	$notice_args = array('post_type' => 'notices', 'posts_per_page' => 2);
 	$notices = get_posts($notice_args);
@@ -14,8 +13,6 @@ function l7w_display_notice() {
 		foreach ($notices as $notice) {
 			$logged_in_only = get_post_meta($notice->ID, '_notice_for_logged_in_only', true);
 			$shortcode_only = get_post_meta($notice->ID, '_display_using_shortcode_only', true);
-
-			// This is set in the plugin "Simple Post Expiration Two"
 			$expires = get_post_meta( $notice->ID, '_pw_spe_expiration', true );
 			
 			// If the expiration date has passed don't show this notice.
@@ -50,15 +47,12 @@ add_action('wp_footer', 'l7w_display_notice');
 function l7w_shortcode_display_notice() {
 
 	global $user_ID;
-	
 	$notice_args = array('post_type' => 'notices', 'posts_per_page' => 2);
 	$notices = get_posts($notice_args);
 	if($notices) :
 		foreach($notices as $notice) {
 			$logged_in_only = get_post_meta($notice->ID, '_notice_for_logged_in_only', true);
 			$shortcode_only = get_post_meta($notice->ID, '_display_using_shortcode_only', true);
-
-			// This is set in the plugin "Simple Post Expiration Two"
 			$expires = get_post_meta( $notice->ID, '_pw_spe_expiration', true );
 			
 			// If the expiration date has passed don't show this notice.
