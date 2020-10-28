@@ -1,11 +1,15 @@
 #notification-area{
-	position: relative; top: 0; left: 0; z-index: 9999;
-	width: 100%; padding: 10px 5% 0;
+	position: relative;
+  top: 0;
+  right: 0;
+  z-index: 9999;
+	width: 420px;
+  padding: 18px 20px 0 !important;
 	background: #d7e9f3;
-	border-bottom: 1px solid #86b2c9;
-	h3{ 
+	border: 1px solid #86b2c9;
+	h3{
 		font-weight: bold;
-		clear:none!important;
+		clear:none !important;
 		margin: 0;
 		padding: 0;
 		color: #222;
@@ -29,7 +33,7 @@
 		p,h3{
 			color: #222;
 		}
-		a{ 
+		a{
 			color: #666;
 		}
 		#remove-notice{
@@ -45,7 +49,7 @@
 		p,h3{
 			color: #222;
 		}
-		a{ 
+		a{
 			color: #666;
 		}
 		#remove-notice{
@@ -61,7 +65,7 @@
 		p,h3{
 			color: #222;
 		}
-		a{ 
+		a{
 			color: #666;
 		}
 		#remove-notice{
@@ -77,15 +81,22 @@
 		p,h3{
 			color: #222;
 		}
-		a{ 
-			color: #666;
-		}
-		#remove-notice{
-			border-color: #bebebe;
-			&:hover{
-				background: #bebebe;
-			}
-		}
+
+    a {
+      color: #666;
+
+      &.remove-notice {
+        color: #fff;
+        border-color: #000;
+        background: #074e68;
+        margin-bottom: 17px;
+
+        &:hover {
+          background: #c4e00a;
+          color: #074e68;
+        }
+      }
+    }
 	}
 }
 .admin-bar{
@@ -104,6 +115,7 @@
 	display: block;
 	float: right;
 	margin: 10px 0 0 10px;
+  margin-top: 0;
 	border: 1px solid #86b2c9;
 	padding: 1px 6px;
 	color: #333;

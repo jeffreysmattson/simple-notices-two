@@ -1,0 +1,31 @@
+{
+  "name": "dartmouth",
+  "version": "2.0.0",
+  "description": "Standard Gulp build tools for Dartmouth.",
+  "main": "index.js",
+  "scripts": {
+    "postinstall": "find node_modules/ -name '*.info' -type f -delete",
+    "sass-lint": "./node_modules/sass-lint/bin/sass-lint.js -c ./.sass-lint.yml -v -q"
+  },
+  "author": "Jeff Mattson",
+  "license": "ISC",
+  "sasslintConfig": "./.sass-lint.yml",
+  "devDependencies": {
+    "breakpoint-sass": "^2.7.1",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-cli": "^2.3.0",
+    "gulp-imagemin": "^7.1.0",
+    "gulp-livereload": "^4.0.2",
+    "gulp-plumber": "^1.2.1",
+    "gulp-sass": "^4.1.0",
+    "gulp-sass-lint": "^1.4.0",
+    "gulp-sass-unicode": "^1.0.5",
+    "imagemin-pngquant": "^8.0.0",
+    "sass-lint": "^1.13.1"
+  },
+  "broswerslist": [
+    "last 2 version",
+    "> 2%"
+  ]
+}

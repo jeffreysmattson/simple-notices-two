@@ -2,18 +2,17 @@
  * In this file you should write your main styles. (or centralize your imports)
  * Import this file using the following HTML or equivalent:
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
-/* line 1, ../simple-css/sass/l7w/_main.scss */
 #notification-area {
   position: relative;
   top: 0;
-  left: 0;
+  right: 0;
   z-index: 9999;
-  width: 100%;
-  padding: 10px 5% 0;
+  width: 420px;
+  padding: 18px 20px 0 !important;
   background: #d7e9f3;
-  border-bottom: 1px solid #86b2c9;
+  border: 1px solid #86b2c9;
 }
-/* line 6, ../simple-css/sass/l7w/_main.scss */
+
 #notification-area h3 {
   font-weight: bold;
   clear: none !important;
@@ -21,132 +20,135 @@
   padding: 0;
   color: #222;
 }
-/* line 13, ../simple-css/sass/l7w/_main.scss */
+
 #notification-area p {
   margin: 0 0 10px;
   color: #222;
 }
-/* line 17, ../simple-css/sass/l7w/_main.scss */
+
 #notification-area a {
   color: #999;
 }
-/* line 20, ../simple-css/sass/l7w/_main.scss */
+
 #notification-area.not-shortcode {
   position: fixed !important;
 }
-/* line 23, ../simple-css/sass/l7w/_main.scss */
+
 #notification-area.show {
   display: block !important;
 }
-/* line 26, ../simple-css/sass/l7w/_main.scss */
+
 #notification-area.red {
   background: #ff8e8e;
   border-color: #d75454;
 }
-/* line 29, ../simple-css/sass/l7w/_main.scss */
+
 #notification-area.red p, #notification-area.red h3 {
   color: #222;
 }
-/* line 32, ../simple-css/sass/l7w/_main.scss */
+
 #notification-area.red a {
   color: #666;
 }
-/* line 35, ../simple-css/sass/l7w/_main.scss */
+
 #notification-area.red #remove-notice {
   border-color: #d75454;
 }
-/* line 37, ../simple-css/sass/l7w/_main.scss */
+
 #notification-area.red #remove-notice:hover {
   background: #d75454;
 }
-/* line 42, ../simple-css/sass/l7w/_main.scss */
+
 #notification-area.orange {
   background: #fe8e33;
   border-color: #c75a02;
 }
-/* line 45, ../simple-css/sass/l7w/_main.scss */
+
 #notification-area.orange p, #notification-area.orange h3 {
   color: #222;
 }
-/* line 48, ../simple-css/sass/l7w/_main.scss */
+
 #notification-area.orange a {
   color: #666;
 }
-/* line 51, ../simple-css/sass/l7w/_main.scss */
+
 #notification-area.orange #remove-notice {
   border-color: #c75a02;
 }
-/* line 53, ../simple-css/sass/l7w/_main.scss */
+
 #notification-area.orange #remove-notice:hover {
   background: #c75a02;
 }
-/* line 58, ../simple-css/sass/l7w/_main.scss */
+
 #notification-area.green {
   background: #5dd428;
   border-color: #46b117;
 }
-/* line 61, ../simple-css/sass/l7w/_main.scss */
+
 #notification-area.green p, #notification-area.green h3 {
   color: #222;
 }
-/* line 64, ../simple-css/sass/l7w/_main.scss */
+
 #notification-area.green a {
   color: #666;
 }
-/* line 67, ../simple-css/sass/l7w/_main.scss */
+
 #notification-area.green #remove-notice {
   border-color: #46b117;
 }
-/* line 69, ../simple-css/sass/l7w/_main.scss */
+
 #notification-area.green #remove-notice:hover {
   background: #46b117;
 }
-/* line 74, ../simple-css/sass/l7w/_main.scss */
+
 #notification-area.gray {
   background: #d8d8d8;
   border-color: #bebebe;
 }
-/* line 77, ../simple-css/sass/l7w/_main.scss */
+
 #notification-area.gray p, #notification-area.gray h3 {
   color: #222;
 }
-/* line 80, ../simple-css/sass/l7w/_main.scss */
+
 #notification-area.gray a {
   color: #666;
 }
-/* line 83, ../simple-css/sass/l7w/_main.scss */
-#notification-area.gray #remove-notice {
-  border-color: #bebebe;
-}
-/* line 85, ../simple-css/sass/l7w/_main.scss */
-#notification-area.gray #remove-notice:hover {
-  background: #bebebe;
+
+#notification-area.gray a.remove-notice {
+  color: #fff;
+  border-color: #000;
+  background: #074e68;
+  margin-bottom: 17px;
 }
 
-/* line 92, ../simple-css/sass/l7w/_main.scss */
+#notification-area.gray a.remove-notice:hover {
+  background: #c4e00a;
+  color: #074e68;
+}
+
 .admin-bar #notification-area {
   top: 0px;
 }
-/* line 94, ../simple-css/sass/l7w/_main.scss */
+
 .admin-bar #notification-area.not-shortcode {
   top: 24px;
   display: none;
 }
-/* line 98, ../simple-css/sass/l7w/_main.scss */
+
 .admin-bar #notification-area.hidden {
   display: none;
 }
 
-/* line 103, ../simple-css/sass/l7w/_main.scss */
 #remove-notice {
   display: block;
   float: right;
   margin: 10px 0 0 10px;
+  margin-top: 0;
   border: 1px solid #86b2c9;
   padding: 1px 6px;
   color: #333;
 }
-/* line 110, ../simple-css/sass/l7w/_main.scss */
+
 #remove-notice:hover {
   text-decoration: none;
   background: #86b2c9;
